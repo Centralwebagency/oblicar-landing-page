@@ -58,14 +58,8 @@
 </head>
 <body>
 
-    <!-- ══════════════════════════════════════════
-         CANVAS — Réseau lumineux animé (fond)
-    ══════════════════════════════════════════ -->
     <canvas id="canvas-bg" aria-hidden="true"></canvas>
 
-    <!-- ══════════════════════════════════════════
-         NAVBAR
-    ══════════════════════════════════════════ -->
     <!-- ══════════════════════════════════════════
          NAVBAR — Vue.js
     ══════════════════════════════════════════ -->
@@ -73,13 +67,11 @@
         <nav class="nav" :class="{ scrolled: isScrolled }">
             <div class="nav__inner">
 
-                <!-- Logo -->
                 <a href="/" class="nav__logo" aria-label="Oblicar — Retour à l'accueil">
                     <img class="nav__logo-img" src="logo.png" alt="Logo Oblicar" width="36" height="36">
                     <span class="nav__logo-text">Oblicar</span>
                 </a>
 
-                <!-- Liens desktop -->
                 <ul class="nav__links" role="list">
                     <li v-for="link in links" :key="link.href">
                         <a :href="link.href" :class="{ active: activeSection === link.id }">
@@ -88,13 +80,11 @@
                     </li>
                 </ul>
 
-                <!-- Actions desktop -->
                 <div class="nav__actions">
                     <a href="https://oblicar.com/connexion" class="nav__login">Se connecter</a>
                     <a href="https://oblicar.com/inscription" class="btn-nav">Créer un compte</a>
                 </div>
 
-                <!-- Burger mobile -->
                 <button
                     class="nav__burger"
                     :class="{ 'is-open': menuOpen }"
@@ -109,7 +99,6 @@
 
             </div>
 
-            <!-- Menu mobile -->
             <div class="nav__mobile" :class="menuOpen ? 'is-open' : 'is-closed'">
                 <ul class="nav__mobile-links" role="list">
                     <li v-for="link in links" :key="link.href">
@@ -125,128 +114,85 @@
         </nav>
     </div>
 
-
-    <!-- ══════════════════════════════════════════
-         SECTION HERO
-    ══════════════════════════════════════════ -->
+    <!-- HERO -->
     <section class="hero" id="hero" aria-labelledby="hero-h1">
-
         <div class="hero__inner">
-
-            <!-- Colonne gauche : message principal -->
             <div class="hero__content">
-
                 <div class="hero__badge" role="text">
                     <span class="badge-dot" aria-hidden="true"></span>
                     Plateforme B2B · Transport de personnes
                 </div>
-
                 <h1 class="hero__h1" id="hero-h1">
                     Tout votre transport professionnel
                     <span class="hl">centralisé en un seul endroit</span>
                 </h1>
-
                 <p class="hero__sub">
                     Oblicar est la plateforme B2B qui connecte les entreprises de transport de personnes.
                     Publiez des missions, sous-traitez, encaissez, facturez et analysez votre rentabilité —
                     <strong>un seul compte, les deux rôles.</strong>
                 </p>
-
                 <div class="hero__ctas" role="group" aria-label="Rejoindre Oblicar">
-                    <a href="https://oblicar.com/inscription" class="btn-primary">
+                    <a href="https://oblicar.com/utilisateurs/inscription/" class="btn-primary">
                         Créer mon compte gratuitement
                         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                            <path d="M3 8h10M9 4l4 4-4 4"
-                                  stroke="currentColor" stroke-width="1.5"
-                                  stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
                     <a href="#fonctionnement" class="btn-secondary">
                         Voir comment ça marche
                     </a>
                 </div>
-
                 <ul class="hero__trust" aria-label="Garanties Oblicar">
                     <li class="trust-item">
-                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                            <path d="M2 7l3.5 3.5L12 3" stroke="currentColor"
-                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         Inscription gratuite
                     </li>
                     <li class="trust-item">
-                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                            <path d="M2 7l3.5 3.5L12 3" stroke="currentColor"
-                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         Sans engagement
                     </li>
                     <li class="trust-item">
-                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                            <path d="M2 7l3.5 3.5L12 3" stroke="currentColor"
-                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         Paiement sécurisé Stripe
                     </li>
                     <li class="trust-item">
-                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                            <path d="M2 7l3.5 3.5L12 3" stroke="currentColor"
-                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         1 compte · 2 rôles (donneur d'ordre & exécutant)
                     </li>
                 </ul>
-
             </div>
 
-            <!-- Colonne droite : 4 piliers -->
             <div class="hero__pillars" role="list" aria-label="Les piliers d'Oblicar">
-
                 <article class="pillar-card" role="listitem">
                     <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M8 7h8M8 12h5m-5 5h8M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M8 7h8M8 12h5m-5 5h8M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="pillar-body">
                         <h2 class="pillar-title">Missions & documents automatiques</h2>
                         <p class="pillar-desc">Publiez une mission, les feuilles de route se génèrent automatiquement.</p>
                     </div>
                 </article>
-
                 <article class="pillar-card" role="listitem">
                     <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="pillar-body">
                         <h2 class="pillar-title">Paiements & facturation intégrés</h2>
                         <p class="pillar-desc">Encaissez directement via la plateforme. La facture PDF est éditée automatiquement après chaque paiement.</p>
                     </div>
                 </article>
-
                 <article class="pillar-card" role="listitem">
                     <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="pillar-body">
                         <h2 class="pillar-title">Base clients & profil public</h2>
                         <p class="pillar-desc">Répertoriez clients et collaborateurs. Chaque entreprise dispose d'un profil public visible sur la plateforme.</p>
                     </div>
                 </article>
-
                 <article class="pillar-card" role="listitem">
                     <div class="pillar-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="pillar-body">
                         <h2 class="pillar-title">Module rentabilité Pro</h2>
@@ -254,73 +200,33 @@
                     </div>
                     <span class="pillar-badge">Pro</span>
                 </article>
-
             </div>
-
         </div>
-
-        <!-- Scroll indicator -->
         <div class="scroll-ind" aria-hidden="true">
             <span>Découvrir</span>
             <div class="scroll-line"></div>
         </div>
-
     </section>
 
-    <!-- ══════════════════════════════════════════
-         PROCHAINES SECTIONS (à venir)
-         #fonctionnement, #sous-traitance, #module, #tarifs, footer
-    ══════════════════════════════════════════ -->
-
-
-    <!-- ══════════════════════════════════════════
-         SECTION FONCTIONNEMENT
-    ══════════════════════════════════════════ -->
+    <!-- FONCTIONNEMENT -->
     <section class="fonct" id="fonctionnement" aria-labelledby="fonct-title">
-
         <div class="fonct__inner">
-
-            <!-- En-tête de section -->
             <div class="fonct__header reveal">
-                <span class="section-badge">
-                    <span class="badge-dot" aria-hidden="true"></span>
-                    Fonctionnement
-                </span>
-                <h2 class="fonct__title" id="fonct-title">
-                    Opérationnel en quelques minutes
-                </h2>
-                <p class="fonct__intro">
-                    Oblicar s'adapte à votre activité dès la création de votre compte.
-                    Pas de formation, pas de configuration complexe.
-                </p>
+                <span class="section-badge"><span class="badge-dot" aria-hidden="true"></span>Fonctionnement</span>
+                <h2 class="fonct__title" id="fonct-title">Opérationnel en quelques minutes</h2>
+                <p class="fonct__intro">Oblicar s'adapte à votre activité dès la création de votre compte. Pas de formation, pas de configuration complexe.</p>
             </div>
-
-            <!-- Étapes -->
             <div class="fonct__steps">
-
-                <!-- Ligne de connexion verticale -->
                 <div class="fonct__line" aria-hidden="true"></div>
-
-                <!-- Étape 1 -->
                 <article class="step reveal" aria-label="Étape 1">
                     <div class="step__number" aria-hidden="true">01</div>
                     <div class="step__card">
                         <div class="step__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                      stroke="currentColor" stroke-width="1.6"
-                                      stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                         <div class="step__body">
                             <h3 class="step__title">Un seul compte, les deux rôles</h3>
-                            <p class="step__desc">
-                                Créez votre compte en quelques minutes. Vous pouvez à tout moment
-                                publier des missions <strong>et</strong> en répondre — sans créer
-                                de second compte. Le choix à l'inscription sert uniquement à
-                                personnaliser votre tableau de bord dès le départ.
-                                Votre profil public est visible par toutes les entreprises inscrites.
-                            </p>
+                            <p class="step__desc">Créez votre compte en quelques minutes. Vous pouvez à tout moment publier des missions <strong>et</strong> en répondre — sans créer de second compte. Le choix à l'inscription sert uniquement à personnaliser votre tableau de bord dès le départ. Votre profil public est visible par toutes les entreprises inscrites.</p>
                             <ul class="step__list">
                                 <li>Inscription gratuite, profil entreprise complet</li>
                                 <li>Donneur d'ordre et exécutant avec un seul compte</li>
@@ -329,24 +235,15 @@
                         </div>
                     </div>
                 </article>
-
-                <!-- Étape 2 -->
                 <article class="step reveal" aria-label="Étape 2">
                     <div class="step__number" aria-hidden="true">02</div>
                     <div class="step__card">
                         <div class="step__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                                      stroke="currentColor" stroke-width="1.6"
-                                      stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                         <div class="step__body">
                             <h3 class="step__title">Publiez une mission, les documents se génèrent</h3>
-                            <p class="step__desc">
-                                Créez votre mission de transport. Le <strong>bon de commande</strong> est généré automatiquement.
-                                Une messagerie dédiée s'ouvre pour chaque mission entre les parties.
-                            </p>
+                            <p class="step__desc">Créez votre mission de transport. Le <strong>bon de commande</strong> est généré automatiquement. Une messagerie dédiée s'ouvre pour chaque mission entre les parties.</p>
                             <ul class="step__list">
                                 <li>Bon de commande automatique à chaque mission</li>
                                 <li>Messagerie intégrée par mission</li>
@@ -355,25 +252,15 @@
                         </div>
                     </div>
                 </article>
-
-                <!-- Étape 3 -->
                 <article class="step reveal" aria-label="Étape 3">
                     <div class="step__number" aria-hidden="true">03</div>
                     <div class="step__card">
                         <div class="step__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                                      stroke="currentColor" stroke-width="1.6"
-                                      stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </div>
                         <div class="step__body">
                             <h3 class="step__title">Payez via la plateforme, la facture est automatique</h3>
-                            <p class="step__desc">
-                                Le paiement s'effectue directement sur Oblicar. Dès validation,
-                                la <strong>facture PDF</strong> est éditée automatiquement et
-                                archivée. Téléchargeable à tout moment depuis votre tableau de bord.
-                            </p>
+                            <p class="step__desc">Le paiement s'effectue directement sur Oblicar. Dès validation, la <strong>facture PDF</strong> est éditée automatiquement et archivée. Téléchargeable à tout moment depuis votre tableau de bord.</p>
                             <ul class="step__list">
                                 <li>Paiement sécurisé Stripe intégré</li>
                                 <li>Facture PDF générée automatiquement</li>
@@ -382,63 +269,33 @@
                         </div>
                     </div>
                 </article>
-
             </div>
-
-            <!-- CTA bas de section -->
             <div class="fonct__cta reveal">
-                <a href="https://oblicar.com/inscription" class="btn-primary">
+                <a href="https://oblicar.com/utilisateurs/inscription/" class="btn-primary">
                     Démarrer gratuitement
-                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor"
-                              stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
             </div>
-
         </div>
-
     </section>
 
-
-
-    <!-- ══════════════════════════════════════════
-         SECTION FONCTIONNALITÉS COMPLÈTES
-    ══════════════════════════════════════════ -->
+    <!-- FONCTIONNALITÉS -->
     <section class="features" id="sous-traitance" aria-labelledby="features-title">
         <div class="features__inner">
-
             <div class="features__header reveal">
-                <span class="section-badge">
-                    <span class="badge-dot" aria-hidden="true"></span>
-                    Fonctionnalités
-                </span>
-                <h2 class="features__title" id="features-title">
-                    Tout ce dont votre entreprise<br>de transport a besoin
-                </h2>
-                <p class="features__intro">
-                    Gestion des missions, paiements, facturation, base clients,
-                    agenda, statistiques — centralisé, archivé, accessible partout.
-                </p>
+                <span class="section-badge"><span class="badge-dot" aria-hidden="true"></span>Fonctionnalités</span>
+                <h2 class="features__title" id="features-title">Tout ce dont votre entreprise<br>de transport a besoin</h2>
+                <p class="features__intro">Gestion des missions, paiements, facturation, base clients, agenda, statistiques — centralisé, archivé, accessible partout.</p>
             </div>
-
-            <!-- Grille principale -->
             <div class="features__grid">
-
-                <!-- Missions & coordination -->
                 <div class="feat-block reveal">
                     <div class="feat-block__head">
-                        <div class="feat-block__icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                                      stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+                        <div class="feat-block__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                         <h3 class="feat-block__title">Missions & coordination</h3>
                     </div>
                     <ul class="feat-block__list">
                         <li>Publication de missions détaillées</li>
-                        <li>Facture généré automatiquement</li>
+                        <li>Facture générée automatiquement</li>
                         <li>Feuille de route automatique</li>
                         <li>Messagerie dédiée par mission</li>
                         <li>Suivi en temps réel</li>
@@ -446,16 +303,9 @@
                         <li>Switch donneur d'ordre ↔ exécutant</li>
                     </ul>
                 </div>
-
-                <!-- Paiements & facturation -->
                 <div class="feat-block reveal">
                     <div class="feat-block__head">
-                        <div class="feat-block__icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                                      stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+                        <div class="feat-block__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                         <h3 class="feat-block__title">Paiements & facturation</h3>
                     </div>
                     <ul class="feat-block__list">
@@ -467,16 +317,9 @@
                         <li>Historique complet des transactions</li>
                     </ul>
                 </div>
-
-                <!-- Tableau de bord -->
                 <div class="feat-block reveal">
                     <div class="feat-block__head">
-                        <div class="feat-block__icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                                      stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+                        <div class="feat-block__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                         <h3 class="feat-block__title">Tableau de bord</h3>
                     </div>
                     <ul class="feat-block__list">
@@ -488,16 +331,9 @@
                         <li>Accès rapide à toutes les sections</li>
                     </ul>
                 </div>
-
-                <!-- Base clients & collaborateurs -->
                 <div class="feat-block reveal">
                     <div class="feat-block__head">
-                        <div class="feat-block__icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-                                      stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+                        <div class="feat-block__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                         <h3 class="feat-block__title">Base clients & collaborateurs</h3>
                     </div>
                     <ul class="feat-block__list">
@@ -509,17 +345,10 @@
                         <li>Profil public de chaque entreprise</li>
                     </ul>
                 </div>
-
-                <!-- Module rentabilité Pro -->
                 <div class="feat-block feat-block--pro reveal">
                     <div class="feat-block__pro-badge">Pro</div>
                     <div class="feat-block__head">
-                        <div class="feat-block__icon">
-                            <svg viewBox="0 0 24 24" fill="none">
-                                <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                                      stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
+                        <div class="feat-block__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                         <h3 class="feat-block__title">Module rentabilité Pro</h3>
                     </div>
                     <ul class="feat-block__list">
@@ -532,33 +361,21 @@
                         <li>Indicateurs de rentabilité en temps réel</li>
                     </ul>
                 </div>
-
-                <!-- CTA bloc -->
                 <div class="feat-block feat-block--cta reveal">
-                    <p class="feat-cta__text">
-                        Prêt à centraliser toute votre activité transport ?
-                    </p>
-                    <a href="https://oblicar.com/inscription" class="btn-primary">
+                    <p class="feat-cta__text">Prêt à centraliser toute votre activité transport ?</p>
+                    <a href="https://oblicar.com/utilisateurs/inscription/" class="btn-primary">
                         Créer mon compte gratuitement
-                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor"
-                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                     <p class="feat-cta__sub">Sans carte bancaire · Sans engagement</p>
                 </div>
-
             </div>
         </div>
     </section>
 
-
-    <!-- ══════════════════════════════════════════
-         SECTION MODULE RENTABILITÉ
-    ══════════════════════════════════════════ -->
+    <!-- MODULE RENTABILITÉ -->
     <section class="module" id="module" aria-labelledby="module-title">
         <div class="module__inner">
-
             <div class="module__header reveal">
                 <span class="section-badge section-badge--pro">
                     <span class="badge-dot badge-dot--pro" aria-hidden="true"></span>
@@ -574,158 +391,75 @@
                     — avec des données fiables, en temps réel.
                 </p>
             </div>
-
-            <!-- Grille de fonctionnalités -->
             <div class="module__blocks reveal">
-
                 <div class="module__block">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">Flotte de véhicules</h3>
                     <p class="module__block-desc">Ajoutez tous vos véhicules avec leurs caractéristiques précises : consommation, type de carburant, coût d'entretien, amortissement. Comparez-les pour identifier le plus rentable sur chaque type de mission.</p>
                 </div>
-
                 <div class="module__block">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">Gestion des chauffeurs</h3>
                     <p class="module__block-desc">Intégrez vos chauffeurs à votre calcul de rentabilité : salaires, charges, heures. Analysez le coût réel par mission et par chauffeur pour optimiser votre organisation.</p>
                 </div>
-
                 <div class="module__block">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">Calculateur multicritères</h3>
                     <p class="module__block-desc">Carburant, péages, temps de conduite, frais fixes, charges sociales, TVA — chaque variable est prise en compte. Obtenez le prix de revient exact et la marge nette de chaque trajet, au centime près.</p>
                 </div>
-
                 <div class="module__block">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">Page statistiques avancées</h3>
                     <p class="module__block-desc">Chiffre d'affaires, évolution des marges, missions les plus rentables, comparatifs période par période. Visualisez la performance de votre activité avec des graphiques clairs et exportables.</p>
                 </div>
-
                 <div class="module__block">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">Jauge d'objectifs CA</h3>
                     <p class="module__block-desc">Définissez vos objectifs mensuels ou annuels de chiffre d'affaires. Suivez votre progression en temps réel avec une jauge visuelle — et ajustez votre activité en conséquence.</p>
                 </div>
-
                 <div class="module__block">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">Historique & bilans</h3>
                     <p class="module__block-desc">Chaque calcul est archivé. Retrouvez l'historique complet de vos missions, vos bilans mensuels et votre récapitulatif fiscal à tout moment.</p>
                 </div>
-
                 <div class="module__block">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">Export PDF & CSV complet</h3>
                     <p class="module__block-desc">Bilans, statistiques, récapitulatifs fiscaux, données de flotte — tout est exportable en PDF ou CSV. Prêt pour votre comptable, votre expert-comptable ou votre propre analyse.</p>
                 </div>
-
                 <div class="module__block module__block--evolution">
-                    <div class="module__block-icon">
-                        <svg viewBox="0 0 24 24" fill="none">
-                            <path d="M13 10V3L4 14h7v7l9-11h-7z"
-                                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                    <div class="module__block-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                     <h3 class="module__block-title">En constante évolution</h3>
                     <p class="module__block-desc">RentabilitéPro est un outil vivant. De nouvelles fonctionnalités sont régulièrement ajoutées. Chaque mise à jour est automatiquement disponible sans surcoût.</p>
                 </div>
-
             </div>
-
-            <!-- CTA module -->
             <div class="module__cta reveal">
                 <div class="module__cta-card">
                     <div class="module__cta-left">
-                        <div class="module__cta-price">
-                            <span class="module__cta-amount">Module indépendant</span>
-                        </div>
-                        <p class="module__cta-desc">
-                            RentabilitéPro s'active sur votre compte existant.
-                            Indépendant de l'abonnement. Annulation à tout moment.
-                        </p>
+                        <div class="module__cta-price"><span class="module__cta-amount">Module indépendant</span></div>
+                        <p class="module__cta-desc">RentabilitéPro s'active sur votre compte existant. Indépendant de l'abonnement. Annulation à tout moment.</p>
                     </div>
-                    <a href="https://oblicar.com/inscription" class="btn-primary">
+                    <a href="https://oblicar.com/utilisateurs/inscription/" class="btn-primary">
                         Découvrir RentabilitéPro
-                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor"
-                                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+                        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-         SECTION VIDÉOS
-    ══════════════════════════════════════════ -->
+    <!-- VIDÉOS -->
     <section class="videos" id="videos" aria-labelledby="videos-title">
         <div class="videos__inner">
-
             <div class="videos__header reveal">
-                <span class="section-badge">
-                    <span class="badge-dot" aria-hidden="true"></span>
-                    La plateforme en action
-                </span>
-                <h2 class="videos__title" id="videos-title">
-                    Voyez Oblicar par vous-même
-                </h2>
-                <p class="videos__intro">
-                    Découvrez les fonctionnalités clés à travers des démonstrations concrètes.
-                </p>
+                <span class="section-badge"><span class="badge-dot" aria-hidden="true"></span>La plateforme en action</span>
+                <h2 class="videos__title" id="videos-title">Voyez Oblicar par vous-même</h2>
+                <p class="videos__intro">Découvrez les fonctionnalités clés à travers des démonstrations concrètes.</p>
             </div>
-
             <div class="videos__grid">
-
-                <!-- Vidéo 1 — remplacer src par ton fichier MP4 -->
                 <div class="video-card reveal">
                     <div class="video-card__player">
-                        <video
-                            class="video-card__video"
-                            src="videos/publier_oblicar.mp4"
-                            poster="videos/publier_oblicar_img.webp."
-                            preload="none"
-                            playsinline
-                            controls
-                            aria-label="Démonstration gestion des missions"
-                        ></video>
+                        <video class="video-card__video" src="videos/publier_oblicar.mp4" poster="videos/publier_oblicar_img.webp" preload="none" playsinline controls aria-label="Démonstration gestion des missions"></video>
                     </div>
                     <div class="video-card__info">
                         <span class="video-card__tag">Missions</span>
@@ -733,19 +467,9 @@
                         <p class="video-card__desc">Créez une mission, recevez des offres et attribuez en quelques clics.</p>
                     </div>
                 </div>
-
-                <!-- Vidéo 2 -->
                 <div class="video-card reveal">
                     <div class="video-card__player">
-                        <video
-                            class="video-card__video"
-                            src="videos/piloter_oblicar.mp4"
-                            poster="videos/tableau_bord.webp"
-                            preload="none"
-                            playsinline
-                            controls
-                            aria-label="Démonstration tableau de bord"
-                        ></video>
+                        <video class="video-card__video" src="videos/piloter_oblicar.mp4" poster="videos/tableau_bord.webp" preload="none" playsinline controls aria-label="Démonstration tableau de bord"></video>
                     </div>
                     <div class="video-card__info">
                         <span class="video-card__tag">Tableau de bord</span>
@@ -753,19 +477,9 @@
                         <p class="video-card__desc">Suivez vos indicateurs, votre CA et vos objectifs en temps réel.</p>
                     </div>
                 </div>
-
-                <!-- Vidéo 3 -->
                 <div class="video-card reveal">
                     <div class="video-card__player">
-                        <video
-                            class="video-card__video"
-                            src="videos/analyser_oblicar.mp4"
-                            poster="videos/analyse_rentabilite.webp"
-                            preload="none"
-                            playsinline
-                            controls
-                            aria-label="Démonstration module rentabilité"
-                        ></video>
+                        <video class="video-card__video" src="videos/analyser_oblicar.mp4" poster="videos/analyse_rentabilite.webp" preload="none" playsinline controls aria-label="Démonstration module rentabilité"></video>
                     </div>
                     <div class="video-card__info">
                         <span class="video-card__tag">Rentabilité</span>
@@ -773,55 +487,29 @@
                         <p class="video-card__desc">Module Pro pour suivre vos coûts, marges et rentabilité par mission.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-         SECTION TARIFS
-    ══════════════════════════════════════════ -->
+    <!-- TARIFS -->
     <section class="tarifs" id="tarifs" aria-labelledby="tarifs-title">
         <div class="tarifs__inner">
-
             <div class="tarifs__header reveal">
-                <span class="section-badge">
-                    <span class="badge-dot" aria-hidden="true"></span>
-                    Tarifs
-                </span>
-                <h2 class="tarifs__title" id="tarifs-title">
-                    Simple et transparent
-                </h2>
-                <p class="tarifs__intro">
-                    Commencez gratuitement. Passez Pro quand vous en avez besoin.
-                </p>
+                <span class="section-badge"><span class="badge-dot" aria-hidden="true"></span>Tarifs</span>
+                <h2 class="tarifs__title" id="tarifs-title">Simple et transparent</h2>
+                <p class="tarifs__intro">Commencez gratuitement. Passez Pro quand vous en avez besoin.</p>
             </div>
-
-            <!-- Explication commission -->
             <div class="tarifs__commission reveal">
                 <div class="tarifs__commission-info">
-                    <svg viewBox="0 0 24 24" fill="none">
-                        <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                              stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p>
-                        Oblicar fonctionne à la commission sur les virements entre entreprises.
-                        <strong>L'abonnement est 100% optionnel</strong> — il permet simplement
-                        de réduire cette commission de moitié.
-                    </p>
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <p>Oblicar fonctionne à la commission sur les virements entre entreprises. <strong>L'abonnement est 100% optionnel</strong> — il permet simplement de réduire cette commission de moitié.</p>
                 </div>
             </div>
-
             <div class="tarifs__grid">
-
-                <!-- Plan Gratuit -->
                 <article class="plan reveal" aria-label="Plan gratuit">
                     <div class="plan__header">
                         <div class="plan__name">Sans abonnement</div>
-                        <div class="plan__price">
-                            <span class="plan__amount">0 €</span>
-                            <span class="plan__period">/ mois</span>
-                        </div>
+                        <div class="plan__price"><span class="plan__amount">0 €</span><span class="plan__period">/ mois</span></div>
                         <p class="plan__desc">Accès complet à toute la plateforme, sans engagement.</p>
                     </div>
                     <div class="plan__commission plan__commission--high">
@@ -838,20 +526,13 @@
                         <li class="is-included">Profil public entreprise</li>
                         <li class="is-included">Archive complète</li>
                     </ul>
-                    <a href="https://oblicar.com/inscription" class="plan__cta plan__cta--outline">
-                        Commencer gratuitement
-                    </a>
+                    <a href="https://oblicar.com/utilisateurs/inscription/" class="plan__cta plan__cta--outline">Commencer gratuitement</a>
                 </article>
-
-                <!-- Plan Abonné -->
                 <article class="plan plan--featured reveal" aria-label="Plan abonné">
                     <div class="plan__badge">Commission réduite</div>
                     <div class="plan__header">
                         <div class="plan__name">Abonné</div>
-                        <div class="plan__price">
-                            <span class="plan__amount">29 €</span>
-                            <span class="plan__period">/ mois TTC</span>
-                        </div>
+                        <div class="plan__price"><span class="plan__amount">29 €</span><span class="plan__period">/ mois TTC</span></div>
                         <p class="plan__desc">Même accès complet, commission divisée par deux.</p>
                     </div>
                     <div class="plan__commission plan__commission--low">
@@ -865,75 +546,41 @@
                         <li class="is-included">Économies sur chaque transaction</li>
                         <li class="is-included">Fonctionnalités supplémentaires à venir</li>
                     </ul>
-                    <a href="https://oblicar.com/inscription" class="plan__cta plan__cta--primary">
-                        S'abonner
-                    </a>
+                    <a href="https://oblicar.com/utilisateurs/inscription/?next=abonnement" class="plan__cta plan__cta--primary">S'abonner</a>
                 </article>
-
             </div>
-
-            <p class="tarifs__note reveal">
-                Prix TTC. Facturation mensuelle. Annulation à tout moment.
-                L'abonnement est indépendant du module RentabilitéPro.
-            </p>
-
+            <p class="tarifs__note reveal">Prix TTC. Facturation mensuelle. Annulation à tout moment. L'abonnement est indépendant du module RentabilitéPro.</p>
         </div>
     </section>
 
-
-
-    <!-- ══════════════════════════════════════════
-         SECTION ÉVOLUTION
-    ══════════════════════════════════════════ -->
+    <!-- ÉVOLUTION -->
     <section class="evolution" aria-label="Évolution de la plateforme">
         <div class="evolution__inner reveal">
             <div class="evolution__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M13 10V3L4 14h7v7l9-11h-7z"
-                          stroke="currentColor" stroke-width="1.6"
-                          stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <svg viewBox="0 0 24 24" fill="none"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div class="evolution__text">
                 <h3 class="evolution__title">Oblicar évolue en permanence</h3>
-                <p class="evolution__desc">
-                    Nous ajoutons régulièrement de nouveaux modules et fonctionnalités
-                    pour répondre à tous les besoins des sociétés de transport de personnes.
-                    Chaque compte bénéficie des mises à jour automatiquement,
-                    sans rien à installer.
-                </p>
+                <p class="evolution__desc">Nous ajoutons régulièrement de nouveaux modules et fonctionnalités pour répondre à tous les besoins des sociétés de transport de personnes. Chaque compte bénéficie des mises à jour automatiquement, sans rien à installer.</p>
             </div>
-            <a href="https://oblicar.com/inscription" class="btn-primary evolution__cta">
+            <a href="https://oblicar.com/utilisateurs/inscription/" class="btn-primary evolution__cta">
                 Rejoindre Oblicar
-                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor"
-                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-         FOOTER
-    ══════════════════════════════════════════ -->
+    <!-- FOOTER -->
     <footer class="footer" role="contentinfo">
-
         <div class="footer__inner">
-
-            <!-- Logo + tagline -->
             <div class="footer__brand">
                 <a href="/" class="footer__logo">
                     <img src="logo.png" alt="Logo Oblicar" width="32" height="32">
                     <span>Oblicar</span>
                 </a>
-                <p class="footer__tagline">
-                    La plateforme B2B qui centralise et coordonne
-                    votre activité transport de personnes.
-                </p>
-                <a href="https://oblicar.com/inscription" class="btn-nav">Créer mon compte</a>
+                <p class="footer__tagline">La plateforme B2B qui centralise et coordonne votre activité transport de personnes.</p>
+                <a href="https://oblicar.com/utilisateurs/inscription/" class="btn-nav">Créer mon compte</a>
             </div>
-
-            <!-- Liens plateforme -->
             <nav class="footer__nav" aria-label="Liens plateforme">
                 <div class="footer__col">
                     <h3 class="footer__col-title">Plateforme</h3>
@@ -941,8 +588,8 @@
                         <li><a href="#fonctionnement">Comment ça marche</a></li>
                         <li><a href="#videos">Démonstrations</a></li>
                         <li><a href="#tarifs">Tarifs</a></li>
-                        <li><a href="https://oblicar.com/inscription">Créer un compte</a></li>
-                        <li><a href="https://oblicar.com/connexion">Se connecter</a></li>
+                        <li><a href="https://oblicar.com/utilisateurs/inscription/">Créer un compte</a></li>
+                        <li><a href="https://oblicar.com/utilisateurs/connexion/">Se connecter</a></li>
                     </ul>
                 </div>
                 <div class="footer__col">
@@ -950,7 +597,7 @@
                     <ul>
                         <li><a href="#fonctionnement">Coordination & sous-traitance</a></li>
                         <li><a href="#fonctionnement">Base clients & collaborateurs</a></li>
-                        <li><a href="#tarifs">Module rentabilité</a></li>
+                        <li><a href="#module">Module rentabilité</a></li>
                         <li><a href="#fonctionnement">Facturation intégrée</a></li>
                     </ul>
                 </div>
@@ -964,19 +611,11 @@
                     </ul>
                 </div>
             </nav>
-
         </div>
-
-        <!-- Bas de footer -->
         <div class="footer__bottom">
-            <p class="footer__copy">
-                &copy; <span id="footer-year"></span> Oblicar. Tous droits réservés.
-            </p>
-            <p class="footer__made">
-                Plateforme 100% française &nbsp;🇫🇷
-            </p>
+            <p class="footer__copy">&copy; <span id="footer-year"></span> Oblicar. Tous droits réservés.</p>
+            <p class="footer__made">Plateforme 100% française &nbsp;🇫🇷</p>
         </div>
-
     </footer>
 
     <!-- Scripts -->
