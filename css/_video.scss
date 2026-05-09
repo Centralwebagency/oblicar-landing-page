@@ -1,0 +1,217 @@
+// ============================================================
+// _video.scss
+// ============================================================
+
+@use 'variables' as *;
+
+.videos {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 2.5rem;
+    background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 0.03), transparent);
+
+    &__inner {
+        max-width: $max-w;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    &__header {
+        text-align: center;
+        max-width: 560px;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        font-weight: 800;
+        color: $text;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    &__intro {
+        font-size: 1rem;
+        color: $muted;
+        line-height: 1.75;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        width: 100%;
+    }
+}
+
+// ── Card vidéo ──
+.video-card {
+    background: $card-bg;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    overflow: hidden;
+    transition: border-color $transition, transform 0.25s;
+
+    &:hover {
+        border-color: $border-blue;
+        transform: translateY(-4px);
+    }
+
+    // Zone player
+    &__player {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background: #0a0a0a;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:hover .video-card__play {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 40px rgba(13, 110, 253, 0.4);
+        }
+
+        &:hover .video-card__overlay {
+            opacity: 0;
+        }
+    }
+
+    &__video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+
+        // Masquer les contrôles natifs — on utilise notre propre bouton
+        &::-webkit-media-controls { display: none !important; }
+    }
+
+    // Overlay sombre par dessus la vidéo
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        transition: opacity $transition;
+        pointer-events: none;
+    }
+
+    // Bouton play centré
+    &__play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 56px;
+        height: 56px;
+        background: $primary;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.25s, box-shadow 0.25s;
+        z-index: 2;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            color: $white;
+            margin-left: 3px;
+        }
+
+        // Disparaît quand la vidéo joue
+        &.is-playing {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    // Infos sous la vidéo
+    &__info {
+        padding: 1.1rem 1.25rem 1.25rem;
+    }
+
+    &__tag {
+        display: inline-block;
+        padding: 0.2rem 0.6rem;
+        background: $primary-dim;
+        border: 1px solid $primary-border;
+        border-radius: 100px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: $primary;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: $text;
+        margin-bottom: 0.35rem;
+        letter-spacing: -0.01em;
+    }
+
+    &__desc {
+        font-size: 0.8rem;
+        color: $muted;
+        line-height: 1.6;
+    }
+}
+
+// ── Responsive ──
+@media (max-width: $desktop) {
+    .videos__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: $tablet) {
+    .videos {
+        padding: 5rem 1.25rem;
+    }
+
+    .videos__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ── Bouton fullscreen ──
+.video-card__fullscreen {
+    position: absolute;
+    bottom: 0.6rem;
+    right: 0.6rem;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity $transition, background $transition;
+
+    svg {
+        width: 14px;
+        height: 14px;
+        stroke: $white;
+    }
+
+    &:hover {
+        background: rgba(13, 110, 253, 0.7);
+        border-color: $primary;
+    }
+}
+
+.video-card__player:hover .video-card__fullscreen {
+    opacity: 1;
+}

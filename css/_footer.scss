@@ -1,0 +1,141 @@
+// ============================================================
+// _footer.scss
+// ============================================================
+
+@use 'variables' as *;
+
+.footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid $border;
+    padding-top: 5rem;
+
+    &__inner {
+        max-width: $max-w;
+        margin: 0 auto;
+        padding: 0 2.5rem 4rem;
+        display: grid;
+        grid-template-columns: 1.2fr 1.8fr;
+        gap: 5rem;
+    }
+
+    // ── Brand ──
+    &__brand {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-decoration: none;
+
+        img {
+            width: 32px;
+            height: 32px;
+            border-radius: 7px;
+            object-fit: cover;
+        }
+
+        span {
+            font-family: $font-display;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: $text;
+            letter-spacing: -0.01em;
+        }
+    }
+
+    &__tagline {
+        font-size: 0.85rem;
+        color: $muted;
+        line-height: 1.75;
+        max-width: 260px;
+    }
+
+    // ── Navigation colonnes ──
+    &__nav {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    &__col-title {
+        font-family: $font-display;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: $text;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+    }
+
+    &__col ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        list-style: none;
+
+        a {
+            font-size: 0.83rem;
+            color: $muted;
+            text-decoration: none;
+            transition: color $transition;
+
+            &:hover { color: $text; }
+        }
+    }
+
+    // ── Bas de footer ──
+    &__bottom {
+        border-top: 1px solid $border;
+        padding: 1.5rem 2.5rem;
+        max-width: $max-w;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    &__copy,
+    &__made {
+        font-size: 0.78rem;
+        color: $subtle;
+    }
+}
+
+// ── Responsive ──
+@media (max-width: $desktop) {
+    .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footer__tagline { max-width: 100%; }
+}
+
+@media (max-width: $tablet) {
+    .footer__inner { padding: 0 1.25rem 3rem; }
+    .footer__bottom { padding: 1.25rem; }
+
+    .footer__nav {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: $mobile) {
+    .footer__nav {
+        grid-template-columns: 1fr;
+    }
+
+    .footer__bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}

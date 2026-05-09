@@ -1,0 +1,36 @@
+// ============================================================
+// _variables.scss
+// ============================================================
+
+$primary:           #0d6efd;
+$primary-hover:     #0b5ed7;
+$primary-dim:       rgba(13, 110, 253, 0.10);
+$primary-border:    rgba(13, 110, 253, 0.25);
+
+$bg:                #111111;
+$card-bg:           #1a1a1a;
+$surface:           #202020;
+$surface-hover:     #262626;
+
+$text:              #f1f1f1;
+$muted:             #c0c0c0;
+$subtle:            #888888;
+$white:             #ffffff;
+
+$border:            rgba(255, 255, 255, 0.055);
+$border-md:         rgba(255, 255, 255, 0.10);
+$border-blue:       rgba(13, 110, 253, 0.22);
+
+$font-display:      'Manrope', sans-serif;
+$font-body:         'Inter', sans-serif;
+$font-base:         16px;
+
+$nav-h:             68px;
+$max-w:             1160px;
+$padding-section:   3rem;
+$border-radius:     10px;
+$transition:        0.3s ease;
+
+$desktop:           1024px;
+$tablet:            768px;
+$mobile:            480px;

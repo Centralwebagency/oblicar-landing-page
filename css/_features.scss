@@ -1,0 +1,210 @@
+// ============================================================
+// _features.scss
+// ============================================================
+
+@use 'variables' as *;
+
+.features {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 2.5rem;
+    background: linear-gradient(to bottom, transparent, rgba(13, 110, 253, 0.02), transparent);
+
+    &__inner {
+        max-width: $max-w;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    &__header {
+        text-align: center;
+        max-width: 560px;
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        font-weight: 800;
+        color: $text;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    &__intro {
+        font-size: 1rem;
+        color: $muted;
+        line-height: 1.75;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        width: 100%;
+    }
+}
+
+// ── Bloc feature ──
+.feat-block {
+    background: $card-bg;
+    border: 1px solid $border;
+    border-radius: $border-radius;
+    padding: 1.75rem;
+    position: relative;
+    transition: border-color $transition, background $transition;
+
+    &:hover {
+        border-color: $border-blue;
+        background: $surface;
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin-bottom: 1.25rem;
+    }
+
+    &__icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 9px;
+        background: $primary-dim;
+        border: 1px solid $primary-border;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        svg {
+            width: 18px;
+            height: 18px;
+            stroke: $primary;
+            fill: none;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    }
+
+    &__title {
+        font-family: $font-display;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: $text;
+        letter-spacing: -0.01em;
+        line-height: 1.3;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        list-style: none;
+
+        li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            font-size: 0.82rem;
+            color: $muted;
+            line-height: 1.5;
+
+            &::before {
+                content: '';
+                width: 5px;
+                height: 5px;
+                background: $primary;
+                border-radius: 50%;
+                flex-shrink: 0;
+                margin-top: 0.42em;
+                opacity: 0.55;
+            }
+        }
+    }
+
+    // Variante Pro
+    &--pro {
+        border-color: $primary-border;
+        background: linear-gradient(
+            150deg,
+            rgba(13, 110, 253, 0.07) 0%,
+            $card-bg 55%
+        );
+
+        &:hover { border-color: rgba(13, 110, 253, 0.4); }
+
+        .feat-block__list li {
+            color: $text;
+
+            &::before { opacity: 0.8; }
+        }
+    }
+
+    &__pro-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.18rem 0.6rem;
+        background: $primary;
+        border-radius: 100px;
+        font-size: 0.6rem;
+        font-weight: 700;
+        color: $white;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    // Variante CTA
+    &--cta {
+        background: transparent;
+        border: 1px dashed rgba(13, 110, 253, 0.25);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 1.25rem;
+        min-height: 200px;
+
+        &:hover {
+            background: $primary-dim;
+            border-color: $primary-border;
+            border-style: solid;
+        }
+    }
+}
+
+.feat-cta__text {
+    font-family: $font-display;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $text;
+    line-height: 1.4;
+}
+
+.feat-cta__sub {
+    font-size: 0.75rem;
+    color: $subtle;
+}
+
+// ── Responsive ──
+@media (max-width: $desktop) {
+    .features__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: $tablet) {
+    .features {
+        padding: 5rem 1.25rem;
+    }
+
+    .features__grid {
+        grid-template-columns: 1fr;
+    }
+}
