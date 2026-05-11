@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Content-Type = "video/mp4"
