@@ -873,7 +873,7 @@
 .video-card__player:hover .video-card__overlay {
   opacity: 0;
 }
-.video-card__video {
+.video-card__video { width: 100%; display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
