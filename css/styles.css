@@ -859,13 +859,7 @@
   border-color: rgba(13, 110, 253, 0.22);
   transform: translateY(-4px);
 }
-.video-card__player {
-  position: relative;
-  aspect-ratio: 16/9;
-  background: #0a0a0a;
-  overflow: hidden;
-  cursor: pointer;
-}
+.video-card__player { position: relative; background: #0a0a0a; cursor: pointer; }
 .video-card__player:hover .video-card__play {
   transform: translate(-50%, -50%) scale(1.1);
   box-shadow: 0 0 40px rgba(13, 110, 253, 0.4);
