@@ -258,23 +258,42 @@
    VIDÉOS — Lecteur custom play/pause
    ============================================================ */
 
+(function initVideos() {
+    document.querySelectorAll('.video-card__player').forEach(function(player) {
+        const video      = player.querySelector('.video-card__video');
+        const btnPlay    = player.querySelector('.video-card__play');
+        const btnFull    = player.querySelector('.video-card__fullscreen');
+        if (!video || !btnPlay) return;
 
         // ── Play / Pause ──
         player.addEventListener('click', function(e) {
             // Ne pas déclencher play si clic sur le bouton fullscreen
+            if (btnFull && btnFull.contains(e.target)) return;
 
+            if (video.paused) {
+                document.querySelectorAll('.video-card__video').forEach(function(v) {
                     if (v !== video) {
                         v.pause();
+                        v.closest('.video-card__player')
+                         .querySelector('.video-card__play')
                          .classList.remove('is-playing');
                     }
                 });
+                video.play();
+                btnPlay.classList.add('is-playing');
             } else {
+                video.pause();
+                btnPlay.classList.remove('is-playing');
             }
         });
 
+        video.addEventListener('ended', function() {
+            btnPlay.classList.remove('is-playing');
         });
 
         // ── Fullscreen ──
+        if (btnFull) {
+            btnFull.addEventListener('click', function(e) {
                 e.stopPropagation();
 
                 if (video.requestFullscreen) {
@@ -288,6 +307,9 @@
                 }
 
                 // Lancer la vidéo si elle était en pause
+                if (video.paused) {
+                    video.play();
+                    btnPlay.classList.add('is-playing');
                 }
             });
         }
