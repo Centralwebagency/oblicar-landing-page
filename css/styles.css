@@ -990,6 +990,20 @@
   opacity: 1;
 }
 
+.video-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #202020;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-placeholder span {
+  font-size: 0.82rem;
+  color: #888888;
+}
+
 .tarifs {
   position: relative;
   z-index: 1;

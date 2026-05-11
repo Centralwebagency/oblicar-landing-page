@@ -215,3 +215,19 @@
 .video-card__player:hover .video-card__fullscreen {
     opacity: 1;
 }
+
+// ── Placeholder vidéo en attente ──
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: $surface;
+    border-bottom: 1px solid $border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        font-size: 0.82rem;
+        color: $subtle;
+    }
+}
